@@ -59,24 +59,31 @@ h2 {
 }
 
 .main h3 {
-      font-size: 5vw;
+      /* font-size: 2e; */
       /* font-weight: 700; */
       font-family: 'Bree Serif', serif;
 }
-.main p{
-      font-size: 3vw;
+.main h5{
+      font-size: 1.5em;
+      font-family: 'Bree Serif', serif;
+}
+.main h1{
+      /* font-size: em; */
       font-family: 'Bree Serif', serif;
 }
 
 .main span {
-      font-size: 4vw;
+      /* font-size: ; */
       /* text-transform: uppercase; */
       line-height: 1;
       font-family: 'Poppins', sans-serif;
+      font-size: 1.8em;
       /* font-size: 5vw; */
       /* text-align: center; */
 }
-
+/* #element{
+      font-size: 2rem;
+} */
 .text-color {
       color: rgb(240, 15, 94);
       font-weight: 500;
@@ -173,9 +180,9 @@ footer {
       width: 2rem;
 }
 
-span a img {
+/* span a img {
       filter: brightness(0) invert(1);
-}
+} */
 
 /* about section */
 .aboutus{
