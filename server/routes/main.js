@@ -57,16 +57,5 @@ router.post("/addcontact", async (req, res) =>{
       const {name,email,message} = req.body;
       await PortC.create({name,email,message})
       res.redirect('/contact')
-    //   try{
-    //     const {name,email,message} = req.body;
-    //     // console.log(req)
-    //     const user = new PortC({name,email,message})
-    //     await user.save();
-    //     // res.status(201).json({message:"Registration Successfull"})
-    //     res.send("sended")
-    // }
-    // catch(error){
-    //     res.status(500).json({error:"Registration Failed"})
-    // }
     })    
 module.exports = router      
