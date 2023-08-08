@@ -8,7 +8,7 @@ const methodOverride = require('method-override')
 const cookieParser = require('cookie-parser')
 const mongoStore = require('connect-mongo')
 const app = express()
-const port = 3000
+const port = process.env.PORT || 5000
 
 // connectDB();
 
