@@ -10,6 +10,10 @@ const portSchema = new mongoose.Schema({
       },
     message: {
             type: String
+      },
+      postAt: {
+            type: Date,
+            default: Date.now
       }
 })
 const PortC = mongoose.model("Portcontacts", portSchema)

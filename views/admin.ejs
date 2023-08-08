@@ -1,0 +1,28 @@
+<%- include('layouts/adminNav') %>
+<div class="container py-5">
+      <!-- <div class="d-flex justify-fontent-center my-5"> -->
+        <h3 class=" text-center">Log In</h3>
+      <div class="row mx-auto rounded shadow bg-light">
+          <div class="col-lg-10 mt-5 mx-auto my-3">
+            <form action="/admin" method="post">
+            <div class="mb-3">
+              <label for="name" class="form-label">Username:</label>
+              <input type="text" name="username"  class="form-control" id="name" placeholder="Enter Your Name">
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password:</label>
+              <input type="password" name="password" class="form-control" id="password" placeholder="Enter Your Password">
+            </div>
+          </div>
+          <button type="submit" id="conBtn" class="btn btn-danger mb-3 w-50 mx-auto">LogIn</button>
+          </div>
+        </form>
+      </div>    
+<!-- <h1>register</h1>
+<form action="/register" method="post">
+      <label for="username"><b>username</b></label>
+      <input type="text" placeholder="enter your name" name="username">
+      <label for="password"><b>password</b></label>
+      <input type="password" placeholder="enter your password" name="password">
+      <input type="submit" value="register">
+</form> -->

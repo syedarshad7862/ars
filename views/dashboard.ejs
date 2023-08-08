@@ -1,0 +1,50 @@
+<%- include('layouts/adminNav') %>
+
+      <h1 class="text-center my-3">My Posts</h1>
+      <a href="/addBlog"><button class="btn btn-danger">Add Blog</button></a>
+
+      <!-- <ul>
+      <% data.forEach(blog => { %>
+       <li>
+            <a href="/blog/<%= blog._id %>">
+                  <%= blog.blog_title %> &nearr;
+            </a>
+            <a href="/editBlog/<%= blog._id %>" class="btn btn-danger">edit</a>
+
+            <form action="/deleteBlog/<%= data._id %>?_method=Delete" method="post">
+                  <input type="submit" value="delete" class="btn btn-danger">
+            </form>
+       </li>
+      <% }) %>
+</ul> -->
+      <section class="container my-5">
+            <div class="row mx-auto justify-fontent-center">
+                  <div class="col-lg-10 mt-5 mx-auto my-3">
+                        <% data.forEach(blog=> { %>
+
+                              <div class="card mb-5 shadow">
+                                    <div class="card-body">
+                                          <h3> <a href="/readBlog/<%= blog._id %>">
+                                                      <%= blog.blog_title%> &nearr;
+                                                </a></h3>
+                                          <p>
+                                                <%= blog.blog_body %>
+                                          </p>
+                                    </div>
+
+
+                                                <a href="/editBlog/<%= blog._id %>"><button class="btn btn-danger">Edit</button></a>
+                                                <form action="/deleteBlog/<%= blog._id %>?_method=Delete"
+                                                      method="post">
+                                                      <input type="submit" value="delete"
+                                                            class="btn btn-danger mt-3">
+                                                </form>
+
+
+                              </div>
+                              <% }) %>
+                  </div>
+            </div>
+      </section>
+
+      <%- include('layouts/footer') %>

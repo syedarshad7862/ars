@@ -43,6 +43,11 @@ body {
 }
 .nav-link:hover{
       color: #e0dbdb;
+      text-decoration: underline rgb(240, 15, 94);
+}
+.nav-link.active{
+      /* color: #e0dbdb; */
+      text-decoration: underline rgb(240, 15, 94);
 }
 
 /* main section  */
@@ -218,4 +223,16 @@ footer {
 }
 .li-h{
       color: rgb(240, 15, 94);
+}
+
+/* blog page styling */
+.card-body a{
+    text-decoration: none;
+    /* color: black;   */
+}
+/* .card-body a:hover{
+    border-bottom: 2px solid rgb(240, 15, 94);
+} */
+.blog-time{
+      color: rgb(30, 165, 255);
 }

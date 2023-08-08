@@ -1,12 +1,16 @@
+require('dotenv').config();
 const express = require('express')
 const path = require('path')
-const connectDB = require('./db/connectDB')
-const PortC = require('./db/user')
+const connectDB = require('./server/db/connectDB')
+const expressLayout = require('express-ejs-layouts')
+const session = require('express-session')
+const methodOverride = require('method-override')
+const cookieParser = require('cookie-parser')
+const mongoStore = require('connect-mongo')
 const app = express()
-const port = 3000
-// getting-started.js
-// const mongoose = require('mongoose');
-// const PortC = require('./db/user')
+const port = 3000 || process.env.PORT
+
+// connectDB();
 
 app.use(express.static('templates'))
 // app.use(express.static(path.join(__dirname, 'static')))
@@ -17,39 +21,62 @@ app.use(express.urlencoded({ extended: true }))
 
 // Middleware assistant for conveting data into json
 app.use(express.json({ extended: true }))
+app.use(cookieParser())
+app.use(methodOverride('_method'));
+
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  store: mongoStore.create({
+    mongoUrl: process.env.MONGODB_URI
+  })
+
+}))
 
 //  View engine setup
+// app.use(expressLayout)
+// app.set('layout','./layouts/main')
 app.set('view engine', 'ejs')
 
 
+app.use('/', require('./server/routes/main'))
+app.use('/', require('./server/routes/admin'))
 
-app.get('/', (req, res) => {
-    res.render('index', {title: "personal portfolio"})
-  })
-app.get('/contact', (req, res) => {
-  res.render('contact',{title: 'Contact me'})
-})
-app.get('/about', (req, res) => {
-  res.render('about',{title: 'About Page'})
-})
+// blog post api
+// app.post('/blogP', async(req, res) => {
+//  const {blog_title} = req.body
+//  await blogPost.create({blog_title})
+//   res.send("your blog sended")
+// })
 
-// Apis
-app.post("/addcontact", async (req, res) =>{
-  const {name,email,message} = req.body;
-  await PortC.create({name,email,message})
-  res.redirect('/contact')
+
+
+// search blog
+// app.post('/search', async(req, res) => {
+ 
 //   try{
-//     const {name,email,message} = req.body;
-//     // console.log(req)
-//     const user = new PortC({name,email,message})
-//     await user.save();
-//     // res.status(201).json({message:"Registration Successfull"})
-//     res.send("sended")
-// }
-// catch(error){
-//     res.status(500).json({error:"Registration Failed"})
-// }
-})
+//     const title= {
+//       title: "searh blog",
+//       discription: "simple blog page create by arshad"
+//     }
+//     let search = req.body.search;
+//     const searchSpecialChar = search.replace(/[^a-zA-Z0-9]/g,"")
+//     const data = await blogPost.find({
+//       $or:[
+//         {blog_title: {$regex: new ReqExp(search, 'i')}}
+//       ]
+//     })
+//     console.log(search)
+//     res.send("blogsearch", {title, data})
+//   }catch (error){
+//     console.log(error)
+//   }
+  
+// })
+
+
+// rendering blog page
 
 connectDB();
 app.listen(port, () => {

@@ -1,0 +1,33 @@
+<%- include('layouts/adminNav') %>
+<a href="/dashboard">&larr; Back</a>
+<!-- <form action="/editBlog/<%= data._id %>?_method=PUT" method="Post">
+      <label for="blog_title">Blog Title</label>
+      <input type="text" placeholder="Blog Title" name="blog_title" value="<%= data.blog_title %>">
+      <label for="blog_body">Blog</label>
+     <textarea name="blog_body" id="" cols="50" rows="10"><%= data.blog_body %></textarea>
+
+     <input type="submit" value="Update">
+</form> -->
+<div class="container">
+      <form action="/deleteBlog/<%= data._id %>?_method=DELETE" method="post">
+      <!-- <input type="submit" value="delete"> -->
+      <button class="btn btn-danger">Delete</button>
+      </form>
+
+      <h3 class="text-center">Edit Blog</h3>
+<div class="row mx-auto rounded shadow bg-light">
+      <div class="col-lg-10 mt-5 mx-auto my-3">
+      <form action="/editBlog/<%= data._id %>?_method=PUT" method="Post">
+        <div class="mb-3">
+          <label for="blog_title" class="form-label">Blog Title:</label>
+          <input type="text" name="blog_title"  class="form-control" value="<%= data.blog_title %>" id="blog_title" placeholder="Blog Title">
+        </div>
+        <div class="mb-3">
+          <label for="blog_body" class="form-label">blog_body:</label>
+          <textarea name="blog_body" id="" cols="50" rows="10"><%= data.blog_body %></textarea>
+        </div>
+      </div>
+      <button type="submit" id="conBtn" class="btn btn-danger mb-3 w-50 mx-auto">Submit</button>
+      </div>
+    </form> 
+</div>    

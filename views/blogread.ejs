@@ -1,0 +1,15 @@
+<%- include ('layouts/header') %>
+<div class="container text-center my-5 text-color">
+      <h1><%= data.blog_title %></h1>
+
+</div>
+<div class="container my-5">
+      <p>
+            <%= data.blog_body %>
+      </p>
+      <p class="blog-time"><small><%= data.createAt.toDateString() %></small></p>
+</div>
+<%- include('layouts/footer')%>
+<!-- <h1 class="text-color"><%= data.blog_title %></h1>
+<p></p>
+<p><%= data.createAt %></p> -->

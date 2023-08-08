@@ -1,0 +1,36 @@
+<%- include('layouts/header')%>
+      <!-- <form action="/blogP" method="post" >
+      <input type="text" name="blog_title" id="" placeholder="blog">
+      <button type="submit">send</button>
+</form> -->
+
+      <div class="container my-5">
+            <h2 class="text-center mb-5"> Welcome To The <span class="text-color">Blog Page</span></h2>
+            <div class="row justify-content-center">
+                  <div class="col-8">
+                              <% data.forEach(blog=> { %>
+                                    <div class="card mb-5 shadow">
+
+                                          <h2 class="px-3 my-4">
+                                                      <a href="/readBlog/<%= blog._id %>" class="text-decoration-none">
+                                                      <%= blog.blog_title%>
+                                                </a>
+                                                </h2>
+                                          <div class="card-body">
+                                                <p class="card-text"></p>
+                                                     <p><%= blog.blog_body%></p> 
+                                                
+                                                <p class="card-text">
+                                                     <small><%= blog.createAt.toDateString() %></small> 
+                                                </p>
+                                          </div>
+                                    </div>
+                                    <% }) %>
+                             </div> 
+                        
+
+                  </div>
+            </div>
+      </div>
+      
+      <%- include('layouts/footer')%>
