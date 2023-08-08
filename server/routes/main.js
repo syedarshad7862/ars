@@ -5,7 +5,7 @@ const blogPost = require('../db/blogPost')
 
 
 // router
-router.get('', (req, res) => {
+router.get('/', (req, res) => {
       const title= {
         title: "Portfolio",
         discription: "simple blog page create by arshad"
