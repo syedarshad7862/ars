@@ -13,7 +13,7 @@ const Admin = require('./server/db/admin')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken');
 const app = express()
-const port = process.env.PORT || 5000
+const port = process.env.PORT
 
 // connectDB();
 const jwtsecret = process.env.OWT_SECRET;
@@ -74,6 +74,7 @@ title: "Blog page",
 discription: "simple blog page create by arshad"
 }
 let data = await blogPost.find();
+// console.log(data[12])
 res.render('blog', {title, data})
 })
 

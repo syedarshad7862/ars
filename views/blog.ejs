@@ -18,7 +18,7 @@
                                                 </h2>
                                           <div class="card-body">
                                                 <p class="card-text"></p>
-                                                     <p><%= blog.blog_body%></p> 
+                                                     <p><%= blog.blog_body.slice(0, 25)%>...</p> 
                                                 
                                                 <p class="card-text">
                                                      <small><%= blog.createAt.toDateString() %></small> 
