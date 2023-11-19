@@ -13,7 +13,7 @@ const Admin = require('./server/db/admin')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken');
 const app = express()
-const port = process.env.PORT
+const port = process.env.PORT || 3000
 
 // connectDB();
 const jwtsecret = process.env.OWT_SECRET;
